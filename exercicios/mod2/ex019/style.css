@@ -1,0 +1,38 @@
+@charset "UTF-8";
+/* id em html é # em CSS
+CLASS em html é . em CSS
+O ID serve apenas pra um elemento dentro do HTML*/
+body{
+    
+    background-color: rgba(221, 200, 106, 0.39);
+    font-family: Arial, Helvetica, sans-serif;
+
+
+}
+h1{
+
+    color: rgb(245, 37, 0);
+}
+
+h1#principal{
+    text-align: center;
+    background-color: aliceblue;
+    color: rgb(0, 0, 0);
+}
+
+h2{
+
+    color: rgb(24, 11, 204);
+}
+.basico{
+    color: rgb(4, 128, 70);
+
+}
+
+.intermediario{
+    color: rgb(168, 153, 15);
+}
+
+.avancado{
+    color: rgb(212, 7, 161);
+}
