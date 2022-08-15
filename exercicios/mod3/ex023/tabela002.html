@@ -8,15 +8,39 @@
     <style>
         body{
             font-family: Arial, Helvetica, sans-serif;
+           
+            
         }
+       
         table{
             border-collapse: collapse;
+            margin: auto;
+            position: relative;
+            
 
+        }
+
+        thead > tr >th{
+            position: sticky;
+            top: -1px;
+            background-color: rgba(64, 65, 66, 0.979);
+
+        }
+        caption{
+            text-align: center;
+            background-color: rgb(107, 105, 105);
+            font-size: 1.5em;
+            color: white;
+            padding: 10px;
+            font-weight: bold;
         }
         th{
             border: 1px solid rgba(46, 45, 45, 0.596);
+            color: white;
             padding: 15px;
-            background-color: rgba(164, 172, 180, 0.247);
+            background-color: rgba(129, 132, 136, 0.637);
+            text-align: center;
+            vertical-align: middle;
         }
         td{
 
@@ -24,39 +48,69 @@
             padding: 05px;
             background-color: rgba(234, 236, 238, 0.315);
         }
+        td.ranking{
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        tbody tr:nth-child(2n){
+            background-color: lightgray;
+        }
 
 
     </style>
 </head>
 <body>
-    <h1>Lista de unidades federativas do Brasil por população</h1>
+    
     <!--
         EXTRUTURA DE TABELAS GRANDES
         TABLE
+        CAPTION(LEGENDA DA TABELA)
         THEAD
             TH,TD,TR
         TBODY
             TH,TD,TR
         TFOOT
             TH,TD,TR
+        **************************************************
+        Para colocar o cabeçalho de modo que ao rolar a tela o cabeçalho permaneça colado em cima, devemos por em table "position=relative" e seguir o codigo abaixo
+
+        thead > tr >th{
+            position: sticky; (para colar)
+            top: -1px;(para não ter espaço nenhum em cima)
+            background-color: rgba(64, 65, 66, 0.979);(cor)
+
+        }
+
+        adicionamos um paragrafo grande no final para mostrar que o efeito de cabeçalho colado acaba assim que a tabela deixa de ser exibida.
+
+        **************************************************
+        Abaixo aplicamos o efeito zebrado na tabela utilizando uma pseudo classe para facilitar o usuário a se localizar dentro da tabela aqui dizemos que dentro de tbody havera um pseudo classe nth-child, que significa que é filha, e o valor 2n significa que de dois em dois será aplicada a formatação abaixo, nesse caso a cada uma linha a segunda tera o  background-color: lightgray.
+
+        tbody tr:nth-child(2n){
+            background-color: lightgray;
+        } 
+        **************************************************
+        A marcação scope nas tg th é necessaria pois facilita para o buscador encontrar as paginas na web e quando colacamos "scope col" significa que o conteúdo daquela th estará em sua coluna e não na linha, por exemplo a "<th scope="col">Posição</th>" aqui dizemos que o conteudo do cabeçalho "Posição" estará logo abaixo em sua coluna. Caso o conteúdo de uma th estiver na mesma linha, por exemplo <th scope="row">total</th> e logo a frente será exibo o total de alguma soma, então ess scope terá o valor row.
     -->
     <table>
+        <caption>Lista da população das unidades federativas brasileiras </caption>
         <thead>
             <tr>
-                <th>Posição</th>
-                <th>Unidade Federativa</th>
-                <th>População(2010)</th>
-                <th>População(2021)</th>
-                <th>Mudança</th>
-                <th>% da Pop. Total</th>
-                <th>País comparavel Habitantes</th>
+                <th scope="col">Posição</th>
+                <th scope="col">Unidade Federativa</th>
+                <th scope="col">População(2010)</th>
+                <th scope="col">População(2021)</th>
+                <th scope="col">Mudança</th>
+                <th scope="col">% da Pop. Total</th>
+                <th scope="col">País comparavel Habitantes</th>
             </tr>
 
         </thead>
         
         <tbody>
             <tr>
-                <td>1</td>
+                <td class="ranking">1</td>
                 <td><img src="img/Bandeira_do_estado_de_São_Paulo.svg.webp" alt="bandeira do estado de São Paulo">São Paulo</td>
                 <td>41 262 199</td>	
                 <td>46 649 132</td>
@@ -65,93 +119,266 @@
                 <td>Flag of Spain.svg Espanha (46 439 864)</td>
             </tr>
 
-            <tr><td>2</td>	 <td>Minas Gerais</td>	<td>19 597 330</td>	<td>21 411 923</td>	<td>+9.26%</td>	<td>10,1%</td>	 <td>Sri Lanka (20 675 000)</td>
-
-            </tr>
-            <tr><td>3</td>	 <td>Rio de Janeiro</td>	<td>15 989 929</td>	<td>17 463 349</td>	<td>+9.21%</td>	<td>8,2%</td>	 <td>Síria (17,500,658)</td>
-
-            </tr>
-            <tr><td>4</td>	<td>Bahia Bahia</td>	<td>14 016 906</td>	<td>14 985 284</td>	<td>+6.91%</td>	<td>7,1%</td>	 <td>Chade (14 037 000)</td>
-
-            </tr>
-            <tr><td>5</td>	 <td>Paraná</td>	<td>10 444 526</td>	<td>11 597 484</td>	<td>+11.04%</td>	<td>5,4%</td>	 <td>Bolívia (11 410 651)</td>
-
-            </tr>
-            <tr><td>6</td>	 <td>Rio Grande do Sul</td>	<td>10 693 929</td>	<td>11 466 630</td>	<td>+7.23%</td>	<td>5,4%</td>	 <td>Bélgica (11 250 659)</td>
+            <tr>
+                <td class="ranking">2</td>	 
+                <td>Minas Gerais</td>	
+                <td>19 597 330</td>	
+                <td>21 411 923</td>	
+                <td>+9.26%</td>	
+                <td>10,1%</td>	 
+                <td>Sri Lanka (20 675 000)</td>
 
             </tr>
             <tr>
-                <td>7</td>	 <td>Pernambuco</td>	<td>8 796 448</td>	<td>9 674 793</td>	<td>+9.98%</td>	<td>4,5%</td>	 <td>Bielorrússia (9 485 300)</td>
-            </tr>
-            <tr><td>8</td>	 <td>Ceará</td>	<td>8 452 381</td>	<td>9 240 580</td>	<td>+9.32%</td>	<td>4,3%</td>	<td> Emirados Árabes Unidos (9 157 000)</td>
-
-            </tr>
-            <tr><td>9</td>	<td>Pará Pará</td>	<td>7 581 051</td>	<td>8 777 124</td>	<td>+15.78%</td>	<td>4,1%</td>	<td> Áustria (8 602 112)</td>
-
-            </tr>
-            <tr>
-                <td>10</td>	 <td>Santa Catarina</td>	<td>6 248 436</td>	<td>7 338 473</td>	<td>+17.44%</td>	<td>3,4%</td>	 <td>Sérvia (7 114 393)</td>
+                <td class="ranking">3</td>	 
+                <td>Rio de Janeiro</td>
+                <td>15 989 929</td>	
+                <td>17 463 349</td>	
+                <td>+9.21%</td>	
+                <td>8,2%</td>	 
+                <td>Síria (17,500,658)</td>
 
             </tr>
             <tr>
-                <td>11</td>	 <td>Goiás</td>	<td>6 003 788</td>	<td>7 206 589</td>	<td>+20.03%</td>	<td>3,4%</td>	 <td>Paraguai (7 003 406)</td>
+                <td class="ranking">4</td>	
+                <td>Bahia Bahia</td>	
+                <td>14 016 906</td>	
+                <td>14 985 284</td>	
+                <td>+6.91%</td>	
+                <td>7,1%</td>	 
+                <td>Chade (14 037 000)</td>
 
             </tr>
-            <tr><td>12</td>	 <td>Maranhão</td>	<td>6 574 789</td>	<td>7 153 262</td>	<td>+8.80%</td>	<td>3,4%</td>	<td> Paraguai (7 003 406)</td>
+            <tr>
+                <td class="ranking">5</td>	 
+                <td>Paraná</td>	
+                <td>10 444 526</td>	
+                <td>11 597 484</td>	
+                <td>+11.04%</td>	
+                <td>5,4%</td>	 
+                <td>Bolívia (11 410 651)</td>
 
             </tr>
-            <tr><td>13</td>	 <td>Amazonas</td>	<td>3 483 985</td>	<td>4 269 995</td>	<td>+22.56%	</td> <td>2,0%</td>	 <td>Líbano (4 168 000)</td>
+            <tr>
+                <td class="ranking">6</td>	 
+                <td>Rio Grande do Sul</td>	
+                <td>10 693 929</td>	
+                <td>11 466 630</td>	
+                <td>+7.23%</td>	
+                <td>5,4%</td>	 
+                <td>Bélgica (11 250 659)</td>
 
             </tr>
-            <tr><td>14</td>	 <td>Espírito Santo</td>	<td>3 514 952</td><td>	4 108 508</td>	<td>+16.89%</td>	<td>1,9%</td> 	 <td>Líbano (4 168 000)</td>
+            <tr>
+                <td class="ranking">7</td>	 
+                <td>Pernambuco</td>	
+                <td>8 796 448</td>	
+                <td>9 674 793</td>	
+                <td>+9.98%</td>	
+                <td>4,5%</td>	 
+                <td>Bielorrússia (9 485 300)</td>
+            </tr>
+            <tr>
+                <td class="ranking">8</td>	 
+                <td>Ceará</td>	
+                <td>8 452 381</td>	
+                <td>9 240 580</td>	
+                <td>+9.32%</td>
+                <td>4,3%</td>	
+                <td> Emirados Árabes Unidos (9 157 000)</td>
 
             </tr>
-            <tr><td>15</td>	 <td>Paraíba</td>	<td>3 766 528</td>	<td>4 059 905</td>	<td>+7.79%</td>	<td>1,9%</td>	 <td>Líbano (4 168 000)</td>
+            <tr>
+                <td class="ranking">9</td>	
+                <td>Pará Pará</td>	
+                <td>7 581 051</td>	
+                <td>8 777 124</td>	
+                <td>+15.78%</td>	
+                <td>4,1%</td>	
+                <td> Áustria (8 602 112)</td>
 
             </tr>
-            <tr><td>16</td>	 <td>Mato Grosso</td>	<td>3 035 122</td>	<td>3 567 234</td>	<td>+17.53%</td>	<td>1,7%</td>	 <td>Uruguai (3 415 866)</td>
+            <tr>
+                <td class="ranking">10</td>	 
+                <td>Santa Catarina</td>	
+                <td>6 248 436</td>	
+                <td>7 338 473</td>	
+                <td>+17.44%</td>	
+                <td>3,4%</td>	 
+                <td>Sérvia (7 114 393)</td>
 
             </tr>
-            <tr><td>17</td>	 <td>Rio Grande do Norte</td>	<td>3 168 027</td>	<td>3 560 903</td>	<td>+12.40%</td>	<td>1,7%</td>	 <td>Uruguai (3 415 866)</td>
+            <tr>
+                <td class="ranking">11</td>	 
+                <td>Goiás</td>	
+                <td>6 003 788</td>	
+                <td>7 206 589</td>	
+                <td>+20.03%</td>	
+                <td>3,4%</td>	 
+                <td>Paraguai (7 003 406)</td>
 
             </tr>
-            <tr><td>18</td>	 <td>Alagoas</td>	<td>3 120 494</td> <td>	3 365 351</td>	<td>+7.85%</td>	<td>1,6%</td>	 <td>Uruguai (3 415 866)</td>
+            <tr>
+                <td class="ranking">12</td>	 
+                <td>Maranhão</td>	
+                <td>6 574 789</td>	
+                <td>7 153 262</td>	
+                <td>+8.80%</td>	
+                <td>3,4%</td>	
+                <td> Paraguai (7 003 406)</td>
 
             </tr>
-            <tr><td>19</td>	 <td>Piauí</td>	<td>3 118 360</td>	<td>3 289 290</td>	<td>+5.48%</td>	<td>1,6%</td>	 <td>Kuwait (3 268 431)</td>
+            <tr>
+                <td class="ranking">13</td>	 
+                <td>Amazonas</td>	
+                <td>3 483 985</td>	
+                <td>4 269 995</td>	
+                <td>+22.56%	</td> 
+                <td>2,0%</td>	 
+                <td>Líbano (4 168 000)</td>
 
             </tr>
-            <tr><td>20</td>	 <td>Distrito Federal</td>	<td>2 570 160	</td><td>3 094 325</td>	<td>+20.39%</td>	<td>1,4%</td>	 <td>Lituânia (2 900 787)</td>
+            <tr>
+                <td class="ranking">14</td>	 
+                <td>Espírito Santo</td>	
+                <td>3 514 952</td>
+                <td>4 108 508</td>	
+                <td>+16.89%</td>	
+                <td>1,9%</td> 	 
+                <td>Líbano (4 168 000)</td>
 
             </tr>
-            <tr><td>21</td>	 <td>Mato Grosso do Sul</td>	<td>2 449 024</td>	<td>2 839 188</td>	<td>+15.93%</td>	<td>1,3%</td>	<td> Jamaica (2 717 991)</td>
+            <tr>
+                <td class="ranking">15</td>	 
+                <td>Paraíba</td>	
+                <td>3 766 528</td>	
+                <td>4 059 905</td>	
+                <td>+7.79%</td>	
+                <td>1,9%</td>	 
+                <td>Líbano (4 168 000)</td>
 
             </tr>
-            <tr><td>22</td>	 <td>Sergipe</td>	<td>2 068 017</td>	<td>2 338 474</td>	<td>+13.07%</td>	<td>1,1%</td>	<td> Namíbia (2 280 700)</td>
+            <tr>
+                <td class="ranking">16</td>	 
+                <td>Mato Grosso</td>	
+                <td>3 035 122</td>	
+                <td>3 567 234</td>	
+                <td>+17.53%</td>	
+                <td>1,7%</td>	 
+                <td>Uruguai (3 415 866)</td>
 
             </tr>
-            <tr><td>23</td>	 <td>Rondônia</td>	<td>1 562 409</td>	<td>1 815 278</td>	<td>+16.18%	</td><td>0,8%</td>	<td> Gabão (1 725 000)</td>
+            <tr>
+                <td class="ranking">17</td>	 
+                <td>Rio Grande do Norte</td>	
+                <td>3 168 027</td>	
+                <td>3 560 903</td>	
+                <td>+12.40%</td>	
+                <td>1,7%</td>	 
+                <td>Uruguai (3 415 866)</td>
 
             </tr>
-            <tr><td>24</td>	 <td>Tocantins</td>	<td>1 383 445</td>	<td>1 607 363</td>	<td>+16.18%</td>	<td>0,7%</td>	 <td>Bahrein (1 359 800)</td>
+            <tr>
+                <td class="ranking">18</td>	 
+                <td>Alagoas</td>	
+                <td>3 120 494</td> 
+                <td>3 365 351</td>	
+                <td>+7.85%</td>	
+                <td>1,6%</td>	 
+                <td>Uruguai (3 415 866)</td>
 
             </tr>
-            <tr><td>25</td>	 <td>Acre</td>	<td>733 	</td><td> 559 876</td>	<td>+23.63%	</td> <td>0,4%</td>	 <td>Fiji (859 178)</td>
+            <tr>
+                <td class="ranking">19</td>	 
+                <td>Piauí</td>	
+                <td>3 118 360</td>	
+                <td>3 289 290</td>	
+                <td>+5.48%</td>	
+                <td>1,6%</td>	 
+                <td>Kuwait (3 268 431)</td>
 
             </tr>
-            <tr><td>26</td>	 <td>Amapá</td>	<td>669 526	</td> <td>877 613</td>	<td>+31.08%</td>	<td>0,4%</td>	<td> Fiji (859 178)</td>
+            <tr>
+                <td class="ranking">20</td>	 
+                <td>Distrito Federal</td>	
+                <td>2 570 160</td>
+                <td>3 094 325</td>	
+                <td>+20.39%</td>	
+                <td>1,4%</td>	 
+                <td>Lituânia (2 900 787)</td>
+
+            </tr>
+            <tr>
+                <td class="ranking">21</td>	 
+                <td>Mato Grosso do Sul</td>	
+                <td>2 449 024</td>	
+                <td>2 839 188</td>	
+                <td>+15.93%</td>	
+                <td>1,3%</td>	
+                <td> Jamaica (2 717 991)</td>
+
+            </tr>
+            <tr>
+                <td class="ranking">22</td>	 
+                <td>Sergipe</td>	
+                <td>2 068 017</td>	
+                <td>2 338 474</td>	
+                <td>+13.07%</td>	
+                <td>1,1%</td>	
+                <td> Namíbia (2 280 700)</td>
+
+            </tr>
+            <tr>
+                <td class="ranking">23</td>	 
+                <td>Rondônia</td>	
+                <td>1 562 409</td>	
+                <td>1 815 278</td>	
+                <td>+16.18%	</td>
+                <td>0,8%</td>	
+                <td> Gabão (1 725 000)</td>
+
+            </tr>
+            <tr>
+                <td class="ranking">24</td>	 
+                <td>Tocantins</td>	
+                <td>1 383 445</td>	
+                <td>1 607 363</td>	
+                <td>+16.18%</td>	
+                <td>0,7%</td>	 
+                <td>Bahrein (1 359 800)</td>
+
+            </tr>
+            <tr>
+                <td class="ranking">25</td>	 
+                <td>Acre</td>	
+                <td>733</td>
+                <td> 559 876</td>	
+                <td>+23.63%	</td> 
+                <td>0,4%</td>	 
+                <td>Fiji (859 178)</td>
+
+            </tr>
+            <tr>
+                <td class="ranking">26</td>	 
+                <td>Amapá</td>	
+                <td>669 526	</td> 
+                <td>877 613</td>	
+                <td>+31.08%</td>	
+                <td>0,4%</td>	
+                <td> Fiji (859 178)</td>
                 
             </tr>
-            <tr><td>27</td>	 <td>Roraima</td>	<td>450 479	652</td> <td>713</td>	<td>+44.89%</td>	<td>0,3%</td>	 <td>Luxemburgo (562 958)</td>
+            <tr>
+                <td class="ranking">27</td>	 
+                <td>Roraima</td>	
+                <td>450 479	652</td> 
+                <td>713</td>	
+                <td>+44.89%</td>	
+                <td>0,3%</td>	 
+                <td>Luxemburgo (562 958)</td>
 
             </tr>
-
-
-
-
-
-
-
+            
 
         </tbody>
 
@@ -162,5 +389,7 @@
 
 
     </table>
+
+    <p>LLorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit aliquid sint asperiores id sed aut doloremque corporis laboriosam debitis ratione doloribus provident facilis natus obcaecati praesentium itaque architecto molestiae, quo nulla, nobis assumenda deleniti omnis sequi. Illum explicabo eos minima temporibus, in iste iusto doloribus adipisci fuga amet impedit repellendus eveniet nobis sapiente maiores illo distinctio vitae aliquam natus? Vitae, porro? Dolore sit accusamus, porro, ab ipsam harum aut nesciunt corrupti dicta aliquam necessitatibus veniam, ipsum dolor consequatur maxime ullam consequuntur velit vel quas rem nemo sed tempore. Quam saepe tempore doloribus, libero iste placeat non mollitia delectus et obcaecati dignissimos aliquid, suscipit architecto sed ad nulla! Consectetur quam eos, officiis porro similique, nihil ratione aliquid in temporibus cupiditate voluptas natus aspernatur voluptatem animi, atque vero maxime voluptate tempore assumenda incidunt adipisci! Esse ea incidunt inventore culpa praesentium architecto ullam. Consequuntur doloremque, molestias perspiciatis reiciendis quae perferendis ab labore aut adipisci exercitationem maxime optio id dolorem illo inventore veritatis sit sed nam, ipsum possimus enim pariatur vitae? Accusantium quae fugiat deleniti, dolore saepe nisi eveniet quibusdam, sequi molestiae magni similique asperiores. Incidunt consectetur delectus eaque autem reiciendis esse est a, nesciunt, provident non porro. Earum recusandae explicabo cumque eos hic eligendi quod necessitatibus officiis, consequatur, rem ipsum iusto ipsam obcaecati ipsa corrupti nulla. Fugit odio, et corrupti quis earum recusandae nesciunt rem impedit qui quia, necessitatibus mollitia soluta, sint harum. Quasi rem necessitatibus officia minus impedit ipsam, deleniti aut. A labore nesciunt veniam officia provident laborum doloremque facere asperiores tempora dolore id ea reprehenderit sint corrupti quia voluptatibus, distinctio nisi esse. Officia, voluptatem iusto consequatur dolores laboriosam repudiandae numquam itaque architecto ipsam, recusandae unde id, exercitationem consectetur incidunt nesciunt nulla dolor. Perferendis quaerat quia dolorum ab optio autem? Dignissimos eos mollitia corrupti animi eum provident? Impedit voluptates nulla hic alias voluptas quas aut ipsum soluta aliquam est consequatur maxime architecto officia molestias, laudantium, provident atque adipisci eum reiciendis autem dolorem quis? Quia, perferendis. Culpa, aspernatur. Perspiciatis corrupti suscipit quas sint animi eaque, laboriosam at? Voluptates quisquam praesentium quidem harum doloremque! Eius quod est reprehenderit similique quam necessitatibus culpa ipsum et laboriosam tempora repellendus veniam at eligendi doloremque excepturi facilis, beatae magnam sunt magni laborum optio quia, fuga ipsam harum! Perspiciatis, distinctio. Repellat corporis recusandae qui praesentium laudantium ab voluptatibus consequuntur corrupti temporibus consequatur inventore odit rem hic saepe commodi cum nobis, officiis autem magni iste quia vero ipsum. Dignissimos qui, culpa nobis odio recusandae, veritatis asperiores et, laudantium voluptatem rerum vero dolores. Harum nobis totam dicta saepe? Ducimus facilis numquam fugit praesentium et voluptates minus sapiente unde! Omnis, illum incidunt impedit tempora in enim placeat consequatur animi commodi velit maiores officia possimus quis voluptates! Facilis animi cumque mollitia ratione tempora voluptates nihil! A placeat sint voluptatem unde excepturi amet officia, reiciendis praesentium! Sapiente odio laudantium quia alias repellendus dolorum, obcaecati explicabo hic. Commodi earum, quis tempore cupiditate praesentium iste fugiat, dolorem laudantium necessitatibus at eaque velit nostrum enim itaque. Non aut culpa necessitatibus doloribus sunt assumenda quasi quas mollitia placeat illum hic debitis, quibusdam ab est cum. Repellat nulla aspernatur libero, quaerat officiis ipsum repudiandae exercitationem laboriosam, ipsa provident totam excepturi omnis labore a. Doloribus ipsam, sapiente distinctio magni deleniti quae! Nobis fugiat libero culpa distinctio quasi velit repudiandae dolorum blanditiis perspiciatis veniam, minima, sapiente officia dignissimos dolores facere fuga labore alias aperiam, odit debitis molestias. Laborum quas voluptatum consequatur eveniet, saepe, nesciunt, iusto impedit totam dolorem ipsa repellat. Similique magnam nesciunt illo molestias omnis tempora in ea laudantium adipisci ab maiores optio dolorum reprehenderit, fugiat provident, error repellat placeat, a iusto? In non maiores sequi quidem minima doloribus aperiam, voluptatum, eaque pariatur fugit ea nisi. Fugit deleniti nihil a dignissimos ut similique ex quisquam aspernatur hic quas veniam numquam sed consectetur, qui accusamus? Numquam alias earum dicta corrupti itaque. Ea ipsum obcaecati animi dignissimos corrupti saepe cum rerum eligendi nulla corporis numquam, voluptate sint natus tenetur vero ipsam laudantium ipsa facere eum sapiente quaerat! Tenetur quasi ipsa, eveniet laudantium quis veniam obcaecati dolorum vero amet sit odio consectetur numquam provident asperiores saepe deserunt reprehenderit quisquam! Eius iusto accusantium debitis incidunt reprehenderit nulla tempora nostrum illo itaque id cum omnis excepturi cupiditate, in mollitia odit praesentium quasi modi et ducimus aperiam voluptates quas! Illum dolorum est beatae libero corrupti quia modi, adipisci deserunt distinctio ducimus praesentium nam natus neque molestias aliquam obcaecati hic saepe esse ipsa officia, eveniet consequuntur. Veniam accusantium iste ipsa. Totam officiis, veniam fuga saepe eligendi quasi sunt exercitationem velit iusto tempora quis, itaque repellat. Illo molestias delectus eligendi dicta in, ea expedita perspiciatis esse. Praesentium quas ea et deleniti ad vero blanditiis quam voluptatum magni? Harum odit deleniti itaque, aliquid eligendi sit nulla aut incidunt non maiores consectetur nostrum, minus quia similique perferendis. Illo accusantium iusto voluptatem nesciunt quos nostrum optio eius, consequatur culpa quae rerum eum praesentium eaque ducimus impedit nemo sapiente laborum et, ea fuga officia tempore soluta eligendi? Ipsum, nobis quibusdam? Ut dolores voluptates saepe molestias nemo odit voluptas pariatur error? Magnam sequi saepe itaque enim facilis veniam animi neque provident, cupiditate voluptatem rem dicta consectetur voluptatibus aspernatur? Quos earum, nisi modi non deserunt dolorum animi placeat molestiae suscipit eligendi iure ab velit blanditiis ratione ut voluptatum adipisci eos veritatis error voluptatibus. Nesciunt earum, voluptatum reprehenderit dolore quibusdam atque maxime suscipit ea, ratione, aliquam vel? Temporibus, similique. Iusto minima hic quaerat aliquam ad et illum eius, facilis rerum soluta, expedita fugiat repellat adipisci neque voluptas temporibus reprehenderit, sit aperiam fuga odio? Non ratione aperiam soluta rem error dolorum labore culpa amet impedit fuga asperiores, voluptates quae fugit cum laudantium adipisci eveniet ipsam veritatis. Veritatis, ducimus nemo eveniet corporis quasi eos laborum mollitia, natus dignissimos vitae culpa porro in? Aliquam beatae magnam eos laboriosam incidunt sapiente. Nisi beatae, esse, rerum ab incidunt ipsam corporis voluptatum in eveniet cumque odit atque laudantium repellendus earum quidem maxime veniam harum magnam! Eveniet, voluptates! Temporibus quis culpa animi aliquid et. Ut aliquam tempore voluptates assumenda explicabo eos, ipsum necessitatibus laborum sed dicta veritatis quasi asperiores deleniti suscipit recusandae.lorem1000 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam, enim sapiente nesciunt tempore ipsam neque doloremque. Nesciunt voluptates, necessitatibus magni ipsum quos totam qui rerum nobis ab vitae reiciendis rem assumenda sed eum pariatur officia ullam tempore magnam neque nam. Distinctio quod at quam vel temporibus voluptatum dolorum exercitationem rem vitae adipisci! Blanditiis qui, veritatis suscipit, ad iure mollitia ratione, cum possimus culpa iusto quas quasi doloremque vel! Aperiam iusto ratione illo dolor possimus quos repellendus tempore optio consectetur obcaecati incidunt unde, velit odit eum eos ipsam, repellat mollitia quidem rerum eveniet, veritatis voluptates? Ratione temporibus error quas commodi incidunt delectus esse, vitae dolore quo ex reiciendis corrupti expedita similique quibusdam totam tenetur? Tenetur in corrupti quam ad molestiae excepturi? Eum odio corrupti dolores officia sint odit earum adipisci vel voluptatibus temporibus dolor quasi id, praesentium obcaecati corporis! Impedit eos perferendis ex quaerat, nam magnam fuga molestiae eaque iusto harum quas maiores pariatur nemo quidem officiis animi eius necessitatibus nostrum et minus numquam dignissimos iste porro. Corporis enim rerum ab in illo ipsam fugiat nesciunt. Saepe, tempore veniam, in sed ratione reiciendis culpa esse animi excepturi neque doloribus tenetur ipsum? Quibusdam corrupti blanditiis molestias, in cupiditate saepe debitis architecto reprehenderit vero ut, veritatis eos ratione soluta a impedit. Expedita eum alias, laudantium itaque hic quia sunt eaque dolorum ex molestias ea, tempore vel iusto quam nulla neque ad laboriosam fugit voluptate quis repellat atque commodi, explicabo non. Saepe, quas! Saepe corrupti esse laboriosam beatae quam, in quibusdam voluptatum sapiente quisquam qui neque itaque suscipit? Necessitatibus dignissimos delectus, corporis consectetur facere quas iusto dolorem earum magnam velit. Quo, ex obcaecati minima nisi repudiandae suscipit impedit ea adipisci vitae dolorem blanditiis quas vero, natus quasi tempora illo accusamus quia velit! Aut, doloribus eligendi! Iste sint facilis fuga modi, assumenda ad illum similique nulla nesciunt eveniet a perferendis, ipsa impedit? At amet, sit odio doloribus neque debitis molestias provident minima vero quibusdam possimus voluptatibus libero, quisquam facilis voluptates earum laborum exercitationem culpa! Dolor recusandae tempore culpa corrupti veniam voluptate quia reprehenderit quod fugiat? Ipsam expedita quam, mollitia voluptatem ipsum placeat ipsa maxime cumque distinctio obcaecati. Saepe consequuntur omnis eius quis. Ipsa, possimus velit natus veniam et alias, hic repudiandae quisquam similique placeat non soluta porro blanditiis corrupti sunt dignissimos accusamus excepturi reprehenderit at odio deleniti laboriosam debitis mollitia quidem. Autem minima sit, cum mollitia optio amet error deleniti, ad non iste eveniet tempore neque saepe labore in dolores at dolorem totam recusandae vero quidem quos quibusdam culpa. Officia maiores ipsum neque odio! Impedit consequatur veritatis distinctio omnis perferendis accusamus cum. Libero dolores at maxime hic? Natus repudiandae ratione porro fugit officia saepe consequuntur laboriosam, sint esse quae neque quasi minus molestiae inventore, cumque dicta non facere doloremque sed possimus. A fuga fugit necessitatibus est voluptate odio incidunt dolorum vitae, laborum nulla ratione odit, voluptas saepe cum unde aperiam libero amet sequi? Dolor repellendus commodi maiores vero dicta, nisi libero ullam quasi hic repellat deserunt alias molestiae velit! Voluptas magnam cum explicabo ab, magni alias sunt non, vitae id assumenda temporibus maiores adipisci necessitatibus quo eligendi esse! Quod facere nobis aperiam iusto, accusantium quam maxime unde, expedita hic, repellendus quo. Asperiores ut harum similique, animi, laudantium aliquam odit tenetur, non atque rem tempore temporibus! Nam sunt optio incidunt temporibus earum. Excepturi, neque asperiores? Ea minima natus hic sed excepturi unde autem, recusandae consectetur fugiat nam quia, corporis aperiam blanditiis reiciendis saepe dolore tempora eius et? Vero quisquam provident quasi voluptates quos officiis perspiciatis molestias! Deserunt voluptatibus eius expedita libero quidem fuga non ullam nemo quas sequi eum et, suscipit dicta, iste neque, laboriosam quisquam commodi accusamus eligendi dolorem quibusdam numquam doloribus iure! Explicabo debitis atque consectetur eius pariatur inventore impedit ab cupiditate, eveniet sapiente fuga quod vitae asperiores esse praesentium dolor magni eos cum natus. Accusamus atque, quae assumenda fuga culpa ab maxime esse! Consectetur nihil iure itaque ex totam deserunt velit perspiciatis debitis. Eius repellat illum deleniti corrupti sunt atque perferendis magnam vero qui aut amet porro voluptatum cupiditate mollitia voluptates, autem quos. Sequi perspiciatis et provident debitis eum ex, similique deleniti voluptatum cumque consequuntur tempore. Laboriosam laborum quas itaque autem sunt? Dolores vero est eos. Aut neque cumque distinctio autem sunt deserunt, commodi fuga iure id nihil modi facilis dolore harum ratione beatae atque ducimus tempore a excepturi laudantium sed nobis maxime magnam mollitia? Nesciunt repudiandae, adipisci eveniet vel error natus similique eius porro expedita. Commodi sint voluptate, inventore doloremque aspernatur officiis illo dignissimos ea itaque vero? Reprehenderit inventore nesciunt voluptatem veniam, ipsam deserunt quaerat fugit ullam dolore repellendus, fuga consequuntur? Quidem, mollitia qui deserunt sit vitae quis tempora aliquid. Quo vero placeat voluptatibus ad veniam recusandae repellendus, beatae unde possimus error natus sint ullam laborum saepe quod a commodi reprehenderit itaque, repellat odio? Alias asperiores, dolore distinctio harum doloribus tempora? Dolorum corporis veniam totam laboriosam hic, sint recusandae accusamus ad fugiat facilis saepe fuga, velit possimus harum in aspernatur. Dolorem omnis similique dolorum, perspiciatis laborum doloremque commodi sed autem? Quam corporis eum dignissimos similique saepe quod nulla doloremque, minima deleniti beatae rem unde id esse minus soluta, asperiores ullam! Modi consectetur vero excepturi iusto veniam. Facere repudiandae rerum officia aspernatur. Laudantium, aut! Illum suscipit explicabo eaque? Architecto quas quis quisquam aut ipsa optio sed sapiente ipsam cum minus? Eligendi distinctio provident est veniam doloribus harum inventore quo repudiandae possimus eius optio numquam tempora, dolor nesciunt a voluptate eaque iusto ad placeat autem hic dolores. Perferendis ipsam non esse eum ipsum error incidunt itaque voluptate ducimus! Aut dolores, quam ea tempora cumque ab veritatis sit inventore eum unde exercitationem repudiandae doloremque cupiditate enim temporibus dicta perferendis nulla magni! Quidem asperiores dolores aut consectetur dolorem, harum ipsum cupiditate inventore esse. Cupiditate aliquid itaque accusantium magni iusto nemo, modi porro obcaecati repudiandae, saepe id, doloribus aspernatur deleniti! Voluptatibus quidem voluptatum in distinctio enim voluptates, consequuntur natus eligendi ea illo tenetur repellendus. Cumque similique provident ipsum officiis dolore natus? Consequuntur nulla laborum, optio modi commodi aperiam ad alias aliquam aspernatur saepe repellendus cum illo dolore?</p>
 </body>
 </html>
